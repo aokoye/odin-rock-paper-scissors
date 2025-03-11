@@ -28,4 +28,19 @@ function getComputerChoice() {
     return comChoice;
 }
 
-console.log(getComputerChoice())
+function getHumanChoice() {
+    let huChoice = prompt ("Choose rock, paper, or scissors.");
+    huChoice = huChoice.toLowerCase();
+
+    if (huChoice == 'rock') {
+        huChoice = 'r';
+    } else if (huChoice == 'paper') {
+        huChoice = 'p';
+    } else {
+        huChoice = 's';
+    }
+    
+    return huChoice;
+}
+
+console.log(getHumanChoice(), getComputerChoice());
