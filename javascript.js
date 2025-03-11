@@ -43,4 +43,49 @@ function getHumanChoice() {
     return huChoice;
 }
 
-console.log(getHumanChoice(), getComputerChoice());
+let humanScore = 0;
+let computerScore = 0;
+let result;
+
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+function playRound(humanChoice, computerChoice) {
+    let choices = humanChoice + computerChoice;
+
+    if (humanChoice === computerChoice) {
+        result = 'There is a tie!'
+    }
+    if (humanChoice === 'r' && computerChoice === 's') {
+        result = 'You won!'
+        humanScore = ++humanScore;
+    }
+    if (humanChoice === 'p' && computerChoice === 'r') {
+        result = 'You won!'
+        humanScore = ++humanScore;
+    }
+    if (humanChoice === 's' && computerChoice === 'p') {
+        result = 'You won!'
+        humanScore = ++humanScore;
+    }
+    if (humanChoice === 's' && computerChoice === 'r') {
+        result = 'You lost. Good luck next time!'
+        computerScore = ++computerScore;
+    }
+    if (humanChoice === 'r' && computerChoice === 'p') {
+        result = 'You lost. Good luck next time!'
+        computerScore = ++computerScore;
+    }
+    if (humanChoice === 'p' && computerChoice === 's') {
+        result = 'You lost. Good luck next time!'
+        computerScore = ++computerScore;
+    }
+
+    console.log(result + " Scores - you: " + humanScore + " computer: " + computerScore);
+    return choices;
+
+
+ }
+
+ 
+console.log(playRound(humanChoice, computerChoice));
